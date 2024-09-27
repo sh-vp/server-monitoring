@@ -38,7 +38,7 @@ TIMESTAMP=$(date +"%Y-%m-%d %H:%M:%S")
 if [[ ${mod} == 2 ]]; then
 croncmd1="bash /var/log/monitor.sh -m 2 -c ${cpu} -r ${ram} -i ${id} -t ${token} > /dev/null 2>&1"
 croncmd2="sleep 30 && bash /var/log/monitor.sh -m 2 -i ${id} -t ${token} > /dev/null 2>&1"
-    url_msg="${token}/message?token=${id}"
+    url_msg="${id}/message?token=${token}"
     read -r -d '' msg <<EOT
 📌 <b>Host Name: $SERVER_HOSTNAME</b>
 
