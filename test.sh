@@ -9,10 +9,6 @@ echo -e  ""
 echo -e  "-------------${green} Input Data Set ${White}--------------"
 echo -e  ""
 echo -e  "-------------------------------------------"
-read -p "Please Insert Maximum CPU Threshold :" cpu
-echo -e  ""
-read -p "Please Insert Maximum Memmory Threshold :" ram
-echo -e  ""
 read -p "Please Insert Your Gotify Login Domain or IP :" id
 echo -e  ""
 read -p "Please Insert Your Gotify API_TOKEN:" token
