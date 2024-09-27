@@ -38,18 +38,13 @@ TIMESTAMP=$(date +"%Y-%m-%d %H:%M:%S")
 if [[ ${mod} == 2 ]]; then
 croncmd1="bash /var/log/monitor.sh -m 2 -c ${cpu} -r ${ram} -i ${id} -t ${token} > /dev/null 2>&1"
 croncmd2="sleep 30 && bash /var/log/monitor.sh -m 2 -i ${id} -t ${token} > /dev/null 2>&1"
-    url_msg="${id}/message?token=${token}"
-    read -r -d '' msg <<EOT
-📌 <b>Host Name: $SERVER_HOSTNAME</b>
-
-🌐 <b>IP Address : $SERVER_IP</b>
-
-📅 <b>Time : $TIMESTAMP</b>
-
---
-EOT
-    curl -X POST -H "Accept: application/json" -H "Content-Type: application/json" \
-        -d "{\"title\":\"✅ Server Monitor Installed Successfully !\",\"message\":\"${msg}",\"priority\":5}" \"$url_msg"
+curl -X POST ${id}/message?token=${token} -H "Accept: application/json," -H "Content-Type: application/json" --data-binary @- <<DATA
+{
+  "title":"✅ Server Monitor Installed Successfully !",
+    "message":"📌 Host Name: $SERVER_HOSTNAME\n🌐 IP Address : $SERVER_IP\n📅 Time : $TIMESTAMP",
+    "priority":5
+}
+DATA
 else
 croncmd1="bash /var/log/monitor.sh -m 1 -c ${cpu} -r ${ram} -i ${id} -t ${token} > /dev/null 2>&1"
 croncmd2="sleep 30 && bash /var/log/monitor.sh -m 1 -i ${id} -t ${token} > /dev/null 2>&1"
