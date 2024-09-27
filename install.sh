@@ -38,7 +38,7 @@ read -r -d '' msg <<EOT
 
 🌐 <b>IP Address : $SERVER_IP</b>
 
-📅 <b>Install Time : $TIMESTAMP</b>
+📅 <b>Time : $TIMESTAMP</b>
 
 --
 EOT
