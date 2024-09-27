@@ -1,8 +1,8 @@
 #!/bin/bash
 
-green='\033[1;92m'        # Green
+green='\033[1;92m'     # Green
 White='\033[0m'        # White
-yellow='\033[1;93m'       # Yellow
+yellow='\033[1;93m'    # Yellow
 clear
 echo -e  "-------------------------------------------"
 echo -e  ""
