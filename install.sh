@@ -22,11 +22,11 @@ echo -e  "${yellow}Start installing Script ...${White}"
 
 wget --no-check-certificate -O /var/log/monitor.sh https://raw.githubusercontent.com/sh-vp/server-monitoring/main/monitoring.sh
 chmod +x /var/log/monitor.sh
-croncmd1="cd /var/log && bash monitor.sh -c ${cpu} -r ${ram} -i ${id} -t ${token} > /dev/null 2>&1"
-croncmd2="sleep 30 && cd /var/log && bash monitor.sh -i ${id} -t ${token} > /dev/null 2>&1"
+croncmd1="bash /var/log/monitor.sh -c ${cpu} -r ${ram} -i ${id} -t ${token} > /dev/null 2>&1"
+croncmd2="sleep 30 && bash /var/log/monitor.sh -i ${id} -t ${token} > /dev/null 2>&1"
 cronjob1="*/5 * * * * $croncmd1"
 cronjob2="@reboot $croncmd2"
-( crontab -l | grep -v -F "$croncmd" ; echo "$cronjob" ) | crontab -
+( crontab -l | grep -v -F "$croncmd1" ; echo "$cronjob1" ) | crontab -
 ( crontab -l | grep -v -F "$croncmd2" ; echo "$cronjob2" ) | crontab -
 SERVER_IP=$(hostname -I | awk '{print $1}')
 SERVER_HOSTNAME=$(hostname)
