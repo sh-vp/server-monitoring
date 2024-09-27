@@ -48,7 +48,7 @@ read -r -d '' msg <<EOT
 
 📈 <b>Memmory Usage : $CURRENT_MEMORY %</b>
 
-📅 <b>Log Time : $TIMESTAMP</b>
+📅 <b>Time : $TIMESTAMP</b>
 
 --
 EOT
@@ -58,13 +58,21 @@ curl --data chat_id="${chatid}" --data-urlencode "text=${msg}" "https://api.tele
 fi
 elif [[ -n "$chatid" && -n "$token" ]]; then
 read -r -d '' msg <<EOT
-⚠️ <b>Server Reboot Alert !</b>
+🔄 <b>Server Reboot Alert !</b>
 
 📌 <b>Host Name: $SERVER_HOSTNAME</b>
 
 🌐 <b>IP Address : $SERVER_IP</b>
 
-📅 <b>Log Time : $TIMESTAMP</b>
+🔺 <b>CPU Core : $cores</b>
+
+📊 <b>CPU Usage : $CURRENT_CPU %</b>
+
+🔺 <b>Memmory Capacity : $total_memory GB</b>
+
+📈 <b>Memmory Usage : $CURRENT_MEMORY %</b>
+
+📅 <b>Time : $TIMESTAMP</b>
 
 --
 EOT
