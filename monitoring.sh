@@ -74,14 +74,14 @@ if [[ -n "$cpu" && -n "$ram" && -n "$chatid" && -n "$token" ]]; then
 if [ "$CURRENT_CPU" -gt "${cpu}" ] || [ "$CURRENT_MEMORY" -gt "${ram}" ]; then
     if [[ "$mode" == 2 ]]; then
 
-send_gotify "⚠️ Server Usage Alert !"
+send_gotify "⚠️ Server Usage Alert !" > /dev/null
 else
 send_tg "⚠️ Server Usage Alert !"
   fi
 fi
 elif [[ "$mode" == 2 && -n "$chatid" && -n "$token" ]]; then
 
-send_gotify "🔄 Server Reboot Alert !"
+send_gotify "🔄 Server Reboot Alert !" > /dev/null
         
 elif [[ "$mode" == 1 && -n "$chatid" && -n "$token" ]]; then
 send_tg "🔄 Server Reboot Alert !"
