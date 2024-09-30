@@ -40,7 +40,7 @@ croncmd1="bash /var/log/monitor.sh -m 2 -c ${cpu} -r ${ram} -i ${id} -t ${token}
 croncmd2="sleep 30 && bash /var/log/monitor.sh -m 2 -i ${id} -t ${token} > /dev/null 2>&1"
 curl -X POST ${id}/message?token=${token} -H "Accept: application/json," -H "Content-Type: application/json" --data-binary @- <<DATA
 {
-  "title":"✅ Server Monitor Installed Successfully !",
+  "title":"✅ Server Monitor Activated Successfully !",
     "message":"📌 Host Name: $SERVER_HOSTNAME\n🌐 IP Address : $SERVER_IP\n📅 Time : $TIMESTAMP",
     "priority":5
 }
@@ -49,7 +49,7 @@ else
 croncmd1="bash /var/log/monitor.sh -m 1 -c ${cpu} -r ${ram} -i ${id} -t ${token} > /dev/null 2>&1"
 croncmd2="sleep 30 && bash /var/log/monitor.sh -m 1 -i ${id} -t ${token} > /dev/null 2>&1"
 read -r -d '' msg <<EOT
-✅ <b>Server Monitor Installed Successfully !</b>
+✅ <b>Server Monitor Activated Successfully !</b>
 
 📌 <b>Host Name: $SERVER_HOSTNAME</b>
 
